@@ -25,6 +25,7 @@ screen=Screen()
 #     side+=1
 
 #Todo: Turtle Challenge 4 - Generate a Random Walk
+timmy.shape("turtle")
 p=1
 s=1
 movement=[90,180,270,0]
