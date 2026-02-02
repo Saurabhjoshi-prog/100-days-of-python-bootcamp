@@ -16,17 +16,23 @@ list_hi_kehde=[(108, 110, 127), (209, 155, 94), (139, 141, 151), (188, 61, 29), 
 timmy=Turtle()
 screen=Screen()
 screen.colormode(255)
+timmy.ht()
+timmy.speed(0)
 timmy.shape("turtle")
-timmy.pensize(20)
+timmy.penup()
 k=0
+timmy.setheading(225)
+timmy.forward(300)
+timmy.setheading(0)
+a=list(timmy.pos())
 for i in range(10):
-    timmy.goto(0, k)
+    timmy.goto(a[0],a[1])
+    a[1]+=50
+
 
     for j in range(10):
-        timmy.pendown()
         timmy.color(random.choice(list_hi_kehde))
-        timmy.forward(1)
-        timmy.penup()
+        timmy.dot(20)
         timmy.forward(50)
     k += 50
 
