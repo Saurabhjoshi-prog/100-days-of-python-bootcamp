@@ -1,5 +1,6 @@
-from turtle import Turtle
+from turtle import Turtle,Screen
 MOVE_DISTANCE=20
+screen = Screen()
 class Snake:
     def __init__(self):
         self.segments=[]
@@ -18,6 +19,18 @@ class Snake:
             newy = self.segments[i - 1].ycor()
             self.segments[i].goto(newx, newy)
         self.segments[0].forward(MOVE_DISTANCE)
+    def up(self):
+        if self.segments[0].heading() != 270:
+            self.segments[0].setheading(90)
+    def down(self):
+        if self.segments[0].heading() != 90:
+            self.segments[0].setheading(270)
+    def left(self):
+        if self.segments[0].heading() != 0:
+            self.segments[0].setheading(180)
+    def right(self):
+        if self.segments[0].heading() != 180:
+            self.segments[0].setheading(0)
 
 
 
