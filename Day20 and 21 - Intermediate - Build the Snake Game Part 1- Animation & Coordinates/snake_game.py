@@ -2,6 +2,7 @@ from turtle import Screen
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
+from gameover import Gameover
 import time
 scoreboard=Scoreboard()
 food=Food()
@@ -28,4 +29,9 @@ while game_is_on:
         scoreboard.clea_screen()
         scoreboard.increase_score()
         food.refresh()
+    #Detect collusion with the wall
+    if snake.segments[0].xcor()>280 or snake.segments[0].xcor()<-280 or snake.segments[0].ycor()>280 or snake.segments[0].ycor()<-280:
+        GG = Gameover()
+        game_is_on=False
+
 screen.exitonclick()
