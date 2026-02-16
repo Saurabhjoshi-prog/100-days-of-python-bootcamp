@@ -26,6 +26,7 @@ while game_is_on:
     snake.move()
     if snake.segments[0].distance(food) < 15:
         print("nom nom nom")
+        snake.extend()
         scoreboard.clea_screen()
         scoreboard.increase_score()
         food.refresh()
@@ -33,5 +34,14 @@ while game_is_on:
     if snake.segments[0].xcor()>280 or snake.segments[0].xcor()<-280 or snake.segments[0].ycor()>280 or snake.segments[0].ycor()<-280:
         GG = Gameover()
         game_is_on=False
+    #Detect collusion with the tail
+    for segment in snake.segments:
+        if segment == snake.segments[0]:
+            pass
+        else:
+            if snake.segments[0].distance(segment)<4:
+                game_is_on=False
+                gg=Gameover()
+
 
 screen.exitonclick()

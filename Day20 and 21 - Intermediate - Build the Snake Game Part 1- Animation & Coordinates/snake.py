@@ -1,4 +1,5 @@
 from turtle import Turtle,Screen
+STARTING_POSITIONS = [(0,0), (-20,0), (-40,0)]
 MOVE_DISTANCE=20
 screen = Screen()
 class Snake:
@@ -6,13 +7,17 @@ class Snake:
         self.segments=[]
         self.createsnake()
     def createsnake(self):
-        for i in range(3):
+        for i in STARTING_POSITIONS:
+           self.add_segment(i)
+    def add_segment(self,i):
             timmy = Turtle()
             timmy.color("white")
             timmy.shape("circle")
             timmy.penup()
-            timmy.goto(i * -20, 0)
+            timmy.goto(i)
             self.segments.append(timmy)
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
     def move(self):
         for i in range(len(self.segments) - 1, 0, -1):
             newx = self.segments[i - 1].xcor()
