@@ -35,10 +35,7 @@ while game_is_on:
         GG = Gameover()
         game_is_on=False
     #Detect collusion with the tail
-    for segment in snake.segments:
-        if segment == snake.segments[0]:
-            pass
-        else:
+    for segment in snake.segments[1:]:
             if snake.segments[0].distance(segment)<4:
                 game_is_on=False
                 gg=Gameover()
