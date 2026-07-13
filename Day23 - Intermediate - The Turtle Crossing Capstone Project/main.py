@@ -5,6 +5,7 @@ from car_manager import CarManager
 from scoreboard import Scoreboard
 
 screen = Screen()
+scoreboard = Scoreboard()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 player = Player()
@@ -23,9 +24,14 @@ while game_is_on:
     #Detect the collusion
     for car in car_manager.all_cars:
         if car.distance(player)<20:
+            scoreboard.game_over()
+
             game_is_on = False
     if player.is_finished_line():
+        scoreboard.increase_score()
+        car_manager.increase_speed()
         player.go_back()
+
 
 
 
